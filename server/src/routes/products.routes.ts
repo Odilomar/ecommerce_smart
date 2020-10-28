@@ -13,7 +13,7 @@ products.get("/", async (request, response) => {
       take: 10,
     });
 
-    response.json(products);
+    response.json({ products });
   } catch (error) {
     response.status(404).json({ error });
   }
