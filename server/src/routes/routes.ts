@@ -1,8 +1,8 @@
 import express from "express";
-import products from "./products";
+import products from "./products.routes";
 
 const routes = express();
 
-routes.use('/products', products);
+routes.use('/product', products);
 
 export default routes;
