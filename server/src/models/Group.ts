@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import products from "../routes/products.routes";
+import Product from "./Product";
 
 @Entity({
     schema: 'soft',
@@ -16,4 +18,7 @@ export default class Group {
         type: 'varchar'
     })
     name: string;
+
+    // @OneToMany(() => Product, product => product.group)
+    // products: Product[];
 }

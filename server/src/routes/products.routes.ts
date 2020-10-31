@@ -1,5 +1,5 @@
 import express from "express";
-import { getRepository } from "typeorm";
+import { getRepository, IsNull, Not } from "typeorm";
 
 import fs from "fs";
 import path from "path";
@@ -11,17 +11,28 @@ const products = express();
 
 products.get("/", async (request, response) => {
   try {
+    const { group_id } = request.query;
+
     const productsRepository = getRepository(Product);
 
-    const dbProducts = await productsRepository.find({
+    const dbProducts = group_id ? await productsRepository.find({
       relations: ["group", "subgroup"],
-      take: 10,
+      take: 25,
+      where: {
+        group: {
+          id: group_id
+        },
+        file: Not(IsNull())
+      }
+    }) : await productsRepository.find({
+      relations: ["group", "subgroup"],
+      take: 25,
     });
 
-    const productsData = dbProducts.map((dbProduct) => {
+    const products = dbProducts.map((dbProduct) => {
       const {id, name, file, group, subgroup} = dbProduct;
 
-      const url = convertBufferToImage(name, file);
+      const url = `http://localhost:3333${convertBufferToImage(name, file)}`;
 
       const product: ProductInterface = {
         id,
@@ -34,7 +45,7 @@ products.get("/", async (request, response) => {
       return product;
     });
 
-    response.json({ productsData });
+    response.json(products);
   } catch (error) {
     response.status(404).json({ error });
   }
@@ -47,6 +58,7 @@ const convertBufferToImage = (name: string, file: Buffer) => {
     .replace(/\./gi, "")
     .replace(/\(/gi, "")
     .replace(/\)/gi, "")
+    .replace(/\//gi, "")
     .replace(/\ /gi, "-");
 
   const fileName = `${productName}.png`;
@@ -54,7 +66,6 @@ const convertBufferToImage = (name: string, file: Buffer) => {
 
   if(!fs.existsSync(tmpFile)){
     fs.writeFile(tmpFile, file, "base64", () => {});
-    //  fs.promises.writeFile(tmpFile, file, "base64");
   }
 
   return `/public/${fileName}`;
