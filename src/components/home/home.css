@@ -1,0 +1,19 @@
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#user_name {
+    margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    nav{
+        justify-content: center;
+    }
+
+    main > div {
+        width: 20%;
+    }
+  }

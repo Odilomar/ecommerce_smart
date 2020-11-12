@@ -1,0 +1,8 @@
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav > button, nav > div {
+    margin-right: 0.5rem;
+}

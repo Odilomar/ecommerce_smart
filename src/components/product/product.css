@@ -1,0 +1,25 @@
+main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+main > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  width: 33%;
+  flex-grow: 1;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+main > div > img {
+  display: block;
+  text-align: center;
+}
+
+main > div > label {
+  font-size: 12px;
+}
