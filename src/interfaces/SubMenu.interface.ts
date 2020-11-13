@@ -1,4 +1,5 @@
 export default interface SubMenuInterface {
-    id: number;
+    idSubMenu: number;
+    idMenu: number;
     name: string;
 }

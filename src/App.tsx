@@ -4,12 +4,12 @@ import "./App.css";
 import Home from "./components/home/Home";
 
 interface SelectedMenu {
-  id: number;
+  idMenu: number;
   idSubMenu: number;
 }
 
 const DEFAULT_SELECTED_MENU: SelectedMenu = {
-  id: 1,
+  idMenu: 1,
   idSubMenu: 2,
 };
 

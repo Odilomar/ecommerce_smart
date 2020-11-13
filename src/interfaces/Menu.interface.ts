@@ -1,7 +1,7 @@
 import SubMenuInterface from "./SubMenu.interface";
 
 export default interface MenuInterface {
-  id: number;
+  idMenu: number;
   name: string;
-  subMenu: SubMenuInterface[];
+  SubMenu: SubMenuInterface[];
 }
