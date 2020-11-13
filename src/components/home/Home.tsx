@@ -15,7 +15,7 @@ interface User {
   token: string;
 }
 
-interface SelectedMenu {
+export interface SelectedMenu {
   idMenu: number;
   idSubMenu: number;
 }
@@ -27,7 +27,7 @@ const DEFAULT_USER: User = {
   token: "",
 };
 
-const DEFAULT_SELECTED_MENU: SelectedMenu = {
+export const DEFAULT_SELECTED_MENU: SelectedMenu = {
   idMenu: 0,
   idSubMenu: 0,
 };
@@ -90,7 +90,7 @@ const Home = () => {
 
       <hr />
 
-      {/* <Product /> */}
+      <Product token={user.token} selectedMenu={selectedMenu} />
     </>
   );
 };
