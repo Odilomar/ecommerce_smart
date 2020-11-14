@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { urlAuth } from "../../constants/url";
-import MenuInterface from "../../interfaces/Menu.interface";
-import SubMenuInterface from "../../interfaces/SubMenu.interface";
 import api from "../../services/api";
 import Menu from "../menu/Menu";
 import Product from "../product/Product";
@@ -18,6 +16,8 @@ interface User {
 export interface SelectedMenu {
   idMenu: number;
   idSubMenu: number;
+  search: string;
+  action: number;
 }
 
 const DEFAULT_USER: User = {
@@ -30,9 +30,12 @@ const DEFAULT_USER: User = {
 export const DEFAULT_SELECTED_MENU: SelectedMenu = {
   idMenu: 0,
   idSubMenu: 0,
+  search: "",
+  action: 0,
 };
 
 const Home = () => {
+  const [search, setSearch] = useState("");
   const [user, setUser] = useState<User>(DEFAULT_USER);
   const [selectedMenu, setSelectedMenu] = useState<SelectedMenu>(
     DEFAULT_SELECTED_MENU
@@ -59,12 +62,14 @@ const Home = () => {
 
   useEffect(() => {
     console.log(selectedMenu);
-  }, [selectedMenu])
+  }, [selectedMenu]);
 
   const handleSelectedMenu = (idMenu: number, idSubMenu: number) => {
     const selectedMenu: SelectedMenu = {
       idMenu: idMenu,
       idSubMenu: idSubMenu,
+      search: "",
+      action: 0,
     };
 
     setSelectedMenu(selectedMenu);
@@ -75,8 +80,23 @@ const Home = () => {
       <header id="header">
         <img src={logo} alt="Logo da loja" width={100} height={100} />
         <div>
-          <input type="search" name="" id="" />
-          <button type="button">Pesquisar</button>
+          <input
+            type="search"
+            onChange={(e) => {
+              const { value } = e.target;
+              setSearch(value);
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => {
+              console.log(search);
+              const { action } = selectedMenu;
+              setSelectedMenu({ ...selectedMenu, search, action: action + 1 });
+            }}
+          >
+            Pesquisar
+          </button>
         </div>
         <div>
           <img src={avatar} alt="" width={100} />

@@ -15,9 +15,21 @@ const Product = ({ token, selectedMenu }: ProductProps) => {
   const [products, setProducts] = useState<ProductInterface[]>([]);
 
   const handleProduct = async () => {
-    const allProducts = await api.get<ProductInterface[]>(
-      `${urlProducts}&idUsuario=2&token=${token}`
-    );
+    const DEFAULT_URL_PRODUCT = `${urlProducts}&idUsuario=2&token=${token}`;
+    const { idMenu, idSubMenu, search } = selectedMenu;
+
+    const url =
+      selectedMenu === DEFAULT_SELECTED_MENU
+        ? DEFAULT_URL_PRODUCT
+        : search !== "" 
+        ? `${DEFAULT_URL_PRODUCT}&search=${search}`
+        : idSubMenu === 0 && search === ""
+        ? `${DEFAULT_URL_PRODUCT}&idMenu=${idMenu}`
+        : idSubMenu > 0 && search === ""
+        ? `${DEFAULT_URL_PRODUCT}&idMenu=${idMenu}&idSubMenu=${idSubMenu}`
+        : `${DEFAULT_URL_PRODUCT}&idMenu=${idMenu}&idSubMenu=${idSubMenu}&search=${search}`;
+
+    const allProducts = await api.get<ProductInterface[]>(url);
 
     const { data } = allProducts;
     setProducts(data);
@@ -25,7 +37,7 @@ const Product = ({ token, selectedMenu }: ProductProps) => {
 
   useEffect(() => {
     console.log({ token, selectedMenu });
-    if (selectedMenu === DEFAULT_SELECTED_MENU && token !== "") handleProduct();
+    if (token !== "") handleProduct();
   }, [token, selectedMenu]);
 
   useEffect(() => {
@@ -36,7 +48,12 @@ const Product = ({ token, selectedMenu }: ProductProps) => {
     <main>
       {products.map((product) => (
         <div key={product.idProduct}>
-          <img src={`${urlApi}${product.url}`} alt={product.name} width={150} height={200} />
+          <img
+            src={`${urlApi}${product.url}`}
+            alt={product.name}
+            width={150}
+            height={200}
+          />
           <label htmlFor="">{product.name}</label>
         </div>
       ))}
