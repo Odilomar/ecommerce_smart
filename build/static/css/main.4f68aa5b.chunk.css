@@ -1,0 +1,2 @@
+nav{display:flex;justify-content:center}nav>button,nav>div{margin-right:.5rem}main{display:flex;justify-content:space-between;flex-wrap:wrap}main>div{display:flex;align-items:center;flex-direction:column;width:33%;flex-grow:1;text-align:center;margin-bottom:20px}main>div>img{display:block;text-align:center}main>div>label{font-size:12px}#header{display:flex;justify-content:space-between;align-items:center}#user_name{margin:0}@media only screen and (min-width:768px){nav{justify-content:center}main>div{width:20%}}
+/*# sourceMappingURL=main.4f68aa5b.chunk.css.map */
