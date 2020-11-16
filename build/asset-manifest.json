@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/ecommerce_smart/static/css/main.62281c69.chunk.css",
-    "main.js": "/ecommerce_smart/static/js/main.9e174a10.chunk.js",
-    "main.js.map": "/ecommerce_smart/static/js/main.9e174a10.chunk.js.map",
-    "runtime-main.js": "/ecommerce_smart/static/js/runtime-main.170bf722.js",
-    "runtime-main.js.map": "/ecommerce_smart/static/js/runtime-main.170bf722.js.map",
-    "static/css/2.3cf5d70f.chunk.css": "/ecommerce_smart/static/css/2.3cf5d70f.chunk.css",
-    "static/js/2.bffd18dc.chunk.js": "/ecommerce_smart/static/js/2.bffd18dc.chunk.js",
-    "static/js/2.bffd18dc.chunk.js.map": "/ecommerce_smart/static/js/2.bffd18dc.chunk.js.map",
-    "index.html": "/ecommerce_smart/index.html",
-    "precache-manifest.001f223f0be364d6bbfcad2b59a2140a.js": "/ecommerce_smart/precache-manifest.001f223f0be364d6bbfcad2b59a2140a.js",
-    "service-worker.js": "/ecommerce_smart/service-worker.js",
-    "static/css/2.3cf5d70f.chunk.css.map": "/ecommerce_smart/static/css/2.3cf5d70f.chunk.css.map",
-    "static/css/main.62281c69.chunk.css.map": "/ecommerce_smart/static/css/main.62281c69.chunk.css.map",
-    "static/js/2.bffd18dc.chunk.js.LICENSE.txt": "/ecommerce_smart/static/js/2.bffd18dc.chunk.js.LICENSE.txt"
+    "main.css": "/ecommerce_smart/build/static/css/main.62281c69.chunk.css",
+    "main.js": "/ecommerce_smart/build/static/js/main.44ead322.chunk.js",
+    "main.js.map": "/ecommerce_smart/build/static/js/main.44ead322.chunk.js.map",
+    "runtime-main.js": "/ecommerce_smart/build/static/js/runtime-main.d75c2dc6.js",
+    "runtime-main.js.map": "/ecommerce_smart/build/static/js/runtime-main.d75c2dc6.js.map",
+    "static/css/2.3cf5d70f.chunk.css": "/ecommerce_smart/build/static/css/2.3cf5d70f.chunk.css",
+    "static/js/2.bffd18dc.chunk.js": "/ecommerce_smart/build/static/js/2.bffd18dc.chunk.js",
+    "static/js/2.bffd18dc.chunk.js.map": "/ecommerce_smart/build/static/js/2.bffd18dc.chunk.js.map",
+    "index.html": "/ecommerce_smart/build/index.html",
+    "precache-manifest.b0f4e4dfcc2eb3a94d9528a5d848894a.js": "/ecommerce_smart/build/precache-manifest.b0f4e4dfcc2eb3a94d9528a5d848894a.js",
+    "service-worker.js": "/ecommerce_smart/build/service-worker.js",
+    "static/css/2.3cf5d70f.chunk.css.map": "/ecommerce_smart/build/static/css/2.3cf5d70f.chunk.css.map",
+    "static/css/main.62281c69.chunk.css.map": "/ecommerce_smart/build/static/css/main.62281c69.chunk.css.map",
+    "static/js/2.bffd18dc.chunk.js.LICENSE.txt": "/ecommerce_smart/build/static/js/2.bffd18dc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.170bf722.js",
+    "static/js/runtime-main.d75c2dc6.js",
     "static/css/2.3cf5d70f.chunk.css",
     "static/js/2.bffd18dc.chunk.js",
     "static/css/main.62281c69.chunk.css",
-    "static/js/main.9e174a10.chunk.js"
+    "static/js/main.44ead322.chunk.js"
   ]
 }
