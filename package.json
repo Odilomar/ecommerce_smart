@@ -2,6 +2,7 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://odilomar.github.io/ecommerce_smart/",
   "dependencies": {
     "@popperjs/core": "^2.5.4",
     "@testing-library/jest-dom": "^4.2.4",
@@ -14,6 +15,7 @@
     "@types/react-dom": "^16.9.0",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.3",
+    "gh-pages": "^3.1.0",
     "lossless-json": "^1.0.4",
     "react": "^16.14.0",
     "react-bootstrap": "^1.0.1",
@@ -22,6 +24,9 @@
     "typescript": "~3.8.0"
   },
   "scripts": {
+    "server": "node server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
