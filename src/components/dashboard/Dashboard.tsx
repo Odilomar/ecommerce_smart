@@ -11,7 +11,7 @@ interface ProductProps {
   selectedMenu: SelectedMenu;
 }
 
-const Product = ({ token, selectedMenu }: ProductProps) => {
+const Dashboard = ({ token, selectedMenu }: ProductProps) => {
   const [products, setProducts] = useState<ProductInterface[]>([]);
 
   const handleProduct = async () => {
@@ -61,4 +61,4 @@ const Product = ({ token, selectedMenu }: ProductProps) => {
   );
 };
 
-export default Product;
+export default Dashboard;

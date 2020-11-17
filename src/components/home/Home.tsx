@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { urlAuth } from "../../constants/url";
 import api from "../../services/api";
 import Menu from "../menu/Menu";
-import Product from "../product/Product";
+import Dashboard from "../dashboard/Dashboard";
 
 import "./home.css";
 
@@ -110,7 +110,7 @@ const Home = () => {
 
       <hr />
 
-      <Product token={user.token} selectedMenu={selectedMenu} />
+      <Dashboard token={user.token} selectedMenu={selectedMenu} />
     </>
   );
 };
