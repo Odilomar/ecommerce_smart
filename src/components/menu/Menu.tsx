@@ -5,7 +5,6 @@ import { Dropdown, Button } from "react-bootstrap";
 import "./menu.css";
 import { urlMenu } from "../../constants/url";
 import api from "../../services/api";
-import SubMenuInterface from "../../interfaces/SubMenu.interface";
 
 interface MenuProps {
   token: string;
@@ -23,6 +22,11 @@ const DEFAULT_MENUS: MenuInterface[] = [
 const Menu = ({ token, handleSelectedMenu }: MenuProps) => {
   const [menus, setMenus] = useState<MenuInterface[]>(DEFAULT_MENUS);
 
+  useEffect(() => {
+    if (token !== "") handleMenu();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
+
   const handleMenu = async () => {
     const menusResponse = await api.get<MenuInterface[]>(
       `${urlMenu}&idUsuario=2&token=${token}`
@@ -34,10 +38,6 @@ const Menu = ({ token, handleSelectedMenu }: MenuProps) => {
 
     setMenus(data);
   };
-
-  useEffect(() => {
-    if (token !== "") handleMenu();
-  }, [token]);
 
   const showMenu = (menu: MenuInterface) => {
     const DEFAULT_MENU = DEFAULT_MENUS[0];
