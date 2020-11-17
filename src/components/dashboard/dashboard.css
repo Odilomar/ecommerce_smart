@@ -4,7 +4,7 @@ main {
   flex-wrap: wrap;
 }
 
-main > div {
+main > a {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -15,11 +15,17 @@ main > div {
   margin-bottom: 20px;
 }
 
-main > div > img {
+main > a > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+main > a > div > img {
   display: block;
   text-align: center;
 }
 
-main > div > label {
+main > a > div > label {
   font-size: 12px;
 }

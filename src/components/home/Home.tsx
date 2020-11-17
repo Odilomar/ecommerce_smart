@@ -6,6 +6,9 @@ import Dashboard from "../dashboard/Dashboard";
 
 import "./home.css";
 
+import { Switch, Route, BrowserRouter } from "react-router-dom";
+import Product from "../product/Product";
+
 interface User {
   status: boolean;
   id: number;
@@ -136,11 +139,20 @@ const Home = () => {
 
       <hr />
 
-      <Dashboard
-        token={user.token}
-        selectedMenu={selectedMenu}
-        handleSelectedProduct={handleSelectedProduct}
-      />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact={true}>
+            <Dashboard
+              token={user.token}
+              selectedMenu={selectedMenu}
+              handleSelectedProduct={handleSelectedProduct}
+            />
+          </Route>
+          <Route path="/product">
+            <Product product={selectedProduct.product} />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </>
   );
 };

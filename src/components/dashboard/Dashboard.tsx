@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { urlApi, urlProducts } from "../../constants/url";
 import ProductInterface from "../../interfaces/Product.interface";
 import api from "../../services/api";
@@ -52,18 +53,20 @@ const Dashboard = ({
   return (
     <main>
       {products.map((product) => (
-        <div key={product.idProduct}>
-          <img
-            src={`${urlApi}${product.url}`}
-            alt={product.name}
-            width={150}
-            height={200}
-            onClick={() => {
-              handleSelectedProduct(product);
-            }}
-          />
-          <label htmlFor="">{product.name}</label>
-        </div>
+        <Link to="/product">
+          <div key={product.idProduct}>
+            <img
+              src={`${urlApi}${product.url}`}
+              alt={product.name}
+              width={150}
+              height={200}
+              onClick={() => {
+                handleSelectedProduct(product);
+              }}
+            />
+            <label htmlFor="">{product.name}</label>
+          </div>
+        </Link>
       ))}
     </main>
   );
