@@ -4,7 +4,7 @@ import ProductInterface from "../../interfaces/Product.interface";
 import api from "../../services/api";
 import { DEFAULT_SELECTED_MENU, SelectedMenu } from "../home/Home";
 
-import "./product.css";
+import "./dashboard.css";
 
 interface ProductProps {
   token: string;
