@@ -9,9 +9,14 @@ import "./dashboard.css";
 interface ProductProps {
   token: string;
   selectedMenu: SelectedMenu;
+  handleSelectedProduct: (product: any) => void;
 }
 
-const Dashboard = ({ token, selectedMenu }: ProductProps) => {
+const Dashboard = ({
+  token,
+  selectedMenu,
+  handleSelectedProduct,
+}: ProductProps) => {
   const [products, setProducts] = useState<ProductInterface[]>([]);
 
   const handleProduct = async () => {
@@ -21,7 +26,7 @@ const Dashboard = ({ token, selectedMenu }: ProductProps) => {
     const url =
       selectedMenu === DEFAULT_SELECTED_MENU
         ? DEFAULT_URL_PRODUCT
-        : search !== "" 
+        : search !== ""
         ? `${DEFAULT_URL_PRODUCT}&search=${search}`
         : idSubMenu === 0 && search === ""
         ? `${DEFAULT_URL_PRODUCT}&idMenu=${idMenu}`
@@ -53,6 +58,9 @@ const Dashboard = ({ token, selectedMenu }: ProductProps) => {
             alt={product.name}
             width={150}
             height={200}
+            onClick={() => {
+              handleSelectedProduct(product);
+            }}
           />
           <label htmlFor="">{product.name}</label>
         </div>

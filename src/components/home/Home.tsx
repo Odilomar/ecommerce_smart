@@ -13,19 +13,19 @@ interface User {
   token: string;
 }
 
-export interface SelectedMenu {
-  idMenu: number;
-  idSubMenu: number;
-  search: string;
-  action: number;
-}
-
 const DEFAULT_USER: User = {
   status: false,
   id: 0,
   name: "",
   token: "",
 };
+
+export interface SelectedMenu {
+  idMenu: number;
+  idSubMenu: number;
+  search: string;
+  action: number;
+}
 
 export const DEFAULT_SELECTED_MENU: SelectedMenu = {
   idMenu: 0,
@@ -34,11 +34,24 @@ export const DEFAULT_SELECTED_MENU: SelectedMenu = {
   action: 0,
 };
 
+interface SelectedProduct {
+  product: any;
+  action: number;
+}
+
+const DEFAULT_SELECTED_PRODUCT: SelectedProduct = {
+  product: {},
+  action: 0,
+};
+
 const Home = () => {
   const [search, setSearch] = useState("");
   const [user, setUser] = useState<User>(DEFAULT_USER);
   const [selectedMenu, setSelectedMenu] = useState<SelectedMenu>(
     DEFAULT_SELECTED_MENU
+  );
+  const [selectedProduct, setSelectedProduct] = useState<SelectedProduct>(
+    DEFAULT_SELECTED_PRODUCT
   );
 
   const logo =
@@ -73,6 +86,19 @@ const Home = () => {
     };
 
     setSelectedMenu(selectedMenu);
+  };
+
+  const handleSelectedProduct = (product: any) => {
+    const { action } = selectedProduct;
+
+    const selectedProductTmp: SelectedProduct = {
+      product,
+      action: action + 1,
+    };
+
+    console.log(product);
+
+    setSelectedProduct(selectedProductTmp);
   };
 
   return (
@@ -110,7 +136,11 @@ const Home = () => {
 
       <hr />
 
-      <Dashboard token={user.token} selectedMenu={selectedMenu} />
+      <Dashboard
+        token={user.token}
+        selectedMenu={selectedMenu}
+        handleSelectedProduct={handleSelectedProduct}
+      />
     </>
   );
 };
