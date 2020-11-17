@@ -44,6 +44,7 @@ const Dashboard = ({
   useEffect(() => {
     console.log({ token, selectedMenu });
     if (token !== "") handleProduct();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token, selectedMenu]);
 
   useEffect(() => {
@@ -53,8 +54,8 @@ const Dashboard = ({
   return (
     <main>
       {products.map((product) => (
-        <Link to="/product">
-          <div key={product.idProduct}>
+        <Link to="/product" key={product.idProduct}>
+          <div>
             <img
               src={`${urlApi}${product.url}`}
               alt={product.name}
